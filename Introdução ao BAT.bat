@@ -6,43 +6,14 @@ cls
 
 title Introdução ao BAT em Windows
 
-setlocal EnableDelayedExpansion
+call:soma 10 5
 
-:inicio
-set /p num=Digite um número para ver sua tabuada: 
+:soma n1 n2
 
-echo.
+set /a res=%~1 + %~2
 
-echo Tabuada de %num%:
-
-echo.
-
-echo -----------------------------
-
-set cont=1
-
-for /l %%t in (1 1 10) do (
-set /a res=%num% * !cont!
-
-echo %num% x !cont! = !res!
-
-set /a cont+=1
-)
-
-echo -----------------------------
+echo %res%
 
 echo.
 
-set /p opc=Deseja digitar outros números? [S/N] 
-
-if /i %opc%==S (
-cls
-
-goto inicio
-) else (
-exit
-)
-
-echo.
-
-pause
+pause>nul
